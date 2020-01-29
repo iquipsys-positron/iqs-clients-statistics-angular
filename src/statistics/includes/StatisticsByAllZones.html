@@ -1,0 +1,27 @@
+<div class="layout-row layout-align-start-center bp8">
+    <div class="text-body1 color-secondary-text flex">
+        {{ $ctrl.statsDescription | translate }} {{ $ctrl.statsDescriptionDetails }}
+    </div>
+    <div class="flex-fixed" >
+        <md-button class="md-icon-button" ng-click="$ctrl.changeView('list')" ng-class="{ 'opacity-secondary' :  $ctrl.view !== 'list'}"
+            ng-if="$ctrl.isGroup">
+            <md-icon md-svg-icon="icons:list"></md-icon>
+        </md-button>
+        <md-button class="md-icon-button" ng-click="$ctrl.changeView('chart')" ng-class="{ 'opacity-secondary' :  $ctrl.view !== 'chart'}">
+            <md-icon md-svg-icon="icons:bars"></md-icon>
+        </md-button>
+        <md-button class="md-icon-button" ng-click="$ctrl.changeView('grid')" ng-class="{ 'opacity-secondary' :  $ctrl.view !== 'grid'}">
+            <md-icon md-svg-icon="icons:grid"></md-icon>
+        </md-button>
+    </div>
+</div>
+
+<div ng-include="'statistics/includes/StatisticsHorizontalBars.html'" ng-if="$ctrl.view === 'list'"></div>
+
+<div ng-include="'statistics/includes/StatisticsGridForAllZones.html'" class="bp16" ng-if="$ctrl.view === 'grid'"></div>
+
+<div ng-include="'statistics/includes/StatisticsBarChart.html'" 
+    ng-if="$ctrl.view === 'chart' && ($ctrl.filterParams.zoneId || $ctrl.filterParams.objectGroupId || $ctrl.filterParams.objectId)"></div>
+
+<div ng-include="'statistics/includes/StatisticsHorizontalBars.html'" 
+    ng-if="$ctrl.view === 'chart' && (!$ctrl.filterParams.zoneId && !$ctrl.filterParams.objectGroupId && !$ctrl.filterParams.objectId)"></div>

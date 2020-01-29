@@ -1,0 +1,68 @@
+<div class="layout-row layout-align-start-center divider-top bp16 tp16" >
+        <div class="text-body2 flex opacity-secondary" >
+            {{ 'PARAMETER' | translate }}
+        </div>
+        <div class="text-body2 flex opacity-secondary">
+            {{ 'VALUE' | translate }}
+        </div>
+</div>
+
+<div class="layout-row layout-align-start-center divider-top bp16 tp16" >
+        <div class="text-body2 flex" >
+            {{ 'FILTER_PARAMS_DISTANCE' | translate }}
+        </div>
+        <div class="text-body2 flex">
+            {{ $ctrl.statistics.distance.display || 0 }} {{ 'KM' | translate }}
+        </div>
+</div>
+
+<div class="layout-row layout-align-start-center divider-top bp16 tp16" >
+        <div class="text-body2 flex" >
+            {{ 'FILTER_PARAMS_SPEED' | translate }}
+        </div>
+        <div class="text-body2 flex">
+            {{ $ctrl.statistics.speed.display || 0 }} {{ 'KM_IN_H' | translate }}
+        </div>
+</div>
+
+<div class="layout-row layout-align-start-center divider-top bp16 tp16" >
+        <div class="text-body2 flex" >
+            {{ 'FILTER_PARAMS_ONLINE' | translate }}
+        </div>
+        <div class="text-body2 flex">
+            <span ng-if="$ctrl.statistics.online.display.hours && $ctrl.statistics.online.display.hours > 0">{{ $ctrl.statistics.online.display.hours }} {{ 'HOURS' | translate }}</span>
+            <span ng-if="$ctrl.statistics.online.display.minutes && $ctrl.statistics.online.display.minutes > 0">{{ $ctrl.statistics.online.display.minutes }} {{ 'MINUTES' | translate }}</span>
+            <span>{{ $ctrl.statistics.online.display.seconds || 0 }} {{ 'SECONDS' | translate }}</span>
+        </div>
+</div>
+
+<!--div class="layout-row layout-align-start-center divider-top bp16 tp16" >
+        <div class="text-body2 flex" >
+            {{ 'FILTER_PARAMS_OFFLINE' | translate }}
+        </div>
+        <div class="text-body2 flex">
+            {{ $ctrl.statistics.distance.display }} {{ 'KM' | translate }}
+        </div>
+</div-->
+
+<div class="layout-row layout-align-start-center divider-top divider-bottom bp16 tp16" >
+        <div class="text-body2 flex" >
+            {{ 'FILTER_PARAMS_FREEZED' | translate }}
+        </div>
+        <div class="text-body2 flex">
+            <span ng-if="$ctrl.statistics.freezed.display.hours && $ctrl.statistics.freezed.display.hours > 0">{{ $ctrl.statistics.freezed.display.hours }} {{ 'HOURS' | translate }} </span>
+            <span ng-if="$ctrl.statistics.freezed.display.minutes && $ctrl.statistics.freezed.display.minutes > 0">{{ $ctrl.statistics.freezed.display.minutes }} {{ 'MINUTES' | translate }} </span>
+            <span>{{ $ctrl.statistics.freezed.display.seconds || 0 }} {{ 'SECONDS' | translate }}</span>
+        </div>
+</div>
+
+<div class="layout-row layout-align-start-center divider-top divider-bottom bp16 tp16" >
+    <div class="text-body2 flex" >
+        {{ 'FILTER_PARAMS_IMMOBILE' | translate }}
+    </div>
+    <div class="text-body2 flex">
+        <span ng-if="$ctrl.statistics.immobile.display.hours && $ctrl.statistics.immobile.display.hours > 0">{{ $ctrl.statistics.immobile.display.hours }} {{ 'HOURS' | translate }} </span>
+        <span ng-if="$ctrl.statistics.immobile.display.minutes && $ctrl.statistics.immobile.display.minutes > 0">{{ $ctrl.statistics.immobile.display.minutes }} {{ 'MINUTES' | translate }} </span>
+        <span>{{ $ctrl.statistics.immobile.display.seconds || 0 }} {{ 'SECONDS' | translate }}</span>
+    </div>
+</div>

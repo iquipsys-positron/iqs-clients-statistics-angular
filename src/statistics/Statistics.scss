@@ -1,0 +1,17 @@
+@import './panels/StatisticsGridPanel';
+
+pip-bar-chart {
+    pip-chart-legend {
+        display: none;
+    }
+}
+
+.iqs-statistics {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    .pip-main-menu {
+        height: 100%;
+    }
+}

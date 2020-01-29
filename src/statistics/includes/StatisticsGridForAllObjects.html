@@ -1,0 +1,41 @@
+<!-- <div class="layout-row layout-align-start-center divider-top bp16 tp16" >
+    <div class="text-body2 flex opacity-secondary" >
+        {{ $ctrl.gridNameLabel | translate }}
+    </div>
+    <div class="text-body2 flex opacity-secondary">
+        {{ $ctrl.gridValueLabel | translate }}
+    </div>
+</div> -->
+
+<!-- 
+<div class="layout-row layout-align-start-center divider-top bp16 tp16" ng-repeat="seria in $ctrl.statistics.series track by $index">
+    <div class="text-body2 flex" >
+        {{ seria.key || seria.label }}
+    </div>
+    <div class="text-body2 flex">
+        <span ng-if="seria.display.hours && seria.display.hours > 0">{{ seria.display.hours }} {{ 'HOURS' | translate }} </span>
+        <span ng-if="seria.display.minutes && seria.display.minutes > 0">{{ seria.display.minutes }} {{ 'MINUTES' | translate }}</span>
+        <span>{{ seria.display.seconds }} {{ 'SECONDS' | translate }}</span>
+    </div>
+</div> -->
+
+<iqs-statistics-grid-panel 
+    iqs-grid-data="$ctrl.statistics.series"
+    iqs-stat-type="$ctrl.statType"
+    iqs-grid-type="$ctrl.gridType"
+    iqs-date-type="$ctrl.dateType"
+    iqs-format-grid-y="$ctrl.formatGridY"
+    iqs-format-grid-x="$ctrl.formatGridX"
+    iqs-name-label="$ctrl.gridNameLabel"
+    iqs-value-label="$ctrl.gridValueLabel"
+    iqs-open-details="$ctrl.onDetails(item)">
+
+</iqs-statistics-grid-panel>
+
+
+<!-- data: '<?iqsGridData',
+statType: '<?iqsStatType',
+gridType: '<?iqsGridType',
+openDetails: '&iqsOpenDetails',
+formatY: '&iqsFormatY',
+formatX: '&iqsFormatX' -->

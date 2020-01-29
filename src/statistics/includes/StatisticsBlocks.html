@@ -1,0 +1,61 @@
+<div class="qit-statistics-blocks" >
+    <div class="p8 iqs-statistics-block bm16" style="background-color: rgba(0, 0, 0, 0.08)">
+        <span class="text-body2">{{ 'FILTER_PARAMS_DISTANCE' | translate }}</span>
+        <div class="w-stretch text-display1" style="text-align: center">
+            {{ $ctrl.statistics.distance.display || '0' }} {{ 'KM' | translate }}
+        </div>
+    </div>
+
+    <div class="p8 iqs-statistics-block bm16" style="background-color: rgba(0, 0, 0, 0.08)">
+        <span class="text-body2">{{ 'FILTER_PARAMS_SPEED' | translate }}</span>
+        <div class="w-stretch text-display1" style="text-align: center">
+            {{ $ctrl.statistics.speed.display || '0' }} {{ 'KM_IN_H' | translate }}
+        </div>
+    </div>
+
+    <div class="p8 iqs-statistics-block bm16" style="background-color: rgba(0, 0, 0, 0.08)">
+        <span class="text-body2">{{ 'FILTER_PARAMS_ONLINE' | translate }}</span>
+        <div class="w-stretch text-display1" style="text-align: center">
+            <span ng-if="$ctrl.statistics.online.display.hours && $ctrl.statistics.online.display.hours > 0">
+                {{ $ctrl.statistics.online.display.hours || '0' }} {{ 'HOURS' | translate }}
+            </span>
+            <span ng-if="$ctrl.statistics.online.display.minutes && $ctrl.statistics.online.display.minutes > 0">
+                {{ $ctrl.statistics.online.display.minutes || '0' }} {{ 'MINUTES' | translate }}
+            </span>
+            <span>{{ $ctrl.statistics.online.display.seconds || '0' }} {{ 'SECONDS' | translate }}</span>
+        </div>
+    </div>
+
+    <!--div class="p8 iqs-statistics-block bm16" style="background-color: rgba(0, 0, 0, 0.08)">
+    <span class="text-body2">{{ 'FILTER_PARAMS_OFFLINE' | translate }}</span>
+    <div class="w-stretch text-display1" style="text-align: center">
+        {{ $ctrl.statistics.offline.display.hours }} {{ 'HOURS' | translate }} {{ $ctrl.statistics.offline.display.minutes }} {{ 'MINUTES' | translate }}
+    </div>
+    </div-->
+
+    <div class="p8 iqs-statistics-block bm16" style="background-color: rgba(0, 0, 0, 0.08)">
+        <span class="text-body2">{{ 'FILTER_PARAMS_FREEZED' | translate }}</span>
+        <div class="w-stretch text-display1" style="text-align: center">
+            <span ng-if="$ctrl.statistics.freezed.display.hours && $ctrl.statistics.freezed.display.hours > 0">
+                {{ $ctrl.statistics.freezed.display.hours || '0' }} {{ 'HOURS' | translate }} 
+            </span>
+            <span ng-if="$ctrl.statistics.freezed.display.minutes && $ctrl.statistics.freezed.display.minutes > 0">
+                {{ $ctrl.statistics.freezed.display.minutes || '0' }} {{ 'MINUTES' | translate }}
+            </span>
+            <span>{{ $ctrl.statistics.freezed.display.seconds || '0' }} {{ 'SECONDS' | translate }}</span>
+        </div>
+    </div>
+
+    <div class="p8 iqs-statistics-block bm16" style="background-color: rgba(0, 0, 0, 0.08)">
+        <span class="text-body2">{{ 'FILTER_PARAMS_IMMOBILE' | translate }}</span>
+        <div class="w-stretch text-display1" style="text-align: center">
+            <span ng-if="$ctrl.statistics.immobile.display.hours && $ctrl.statistics.immobile.display.hours > 0">
+                {{ $ctrl.statistics.immobile.display.hours || '0' }} {{ 'HOURS' | translate }} 
+            </span>
+            <span ng-if="$ctrl.statistics.immobile.display.minutes && $ctrl.statistics.immobile.display.minutes > 0">
+                {{ $ctrl.statistics.immobile.display.minutes || '0' }} {{ 'MINUTES' | translate }}
+            </span>
+            <span>{{ $ctrl.statistics.immobile.display.seconds || '0' }} {{ 'SECONDS' | translate }}</span>
+        </div>
+    </div>    
+</div>

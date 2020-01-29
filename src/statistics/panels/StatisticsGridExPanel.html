@@ -1,0 +1,45 @@
+<div class="iqs-statistics-grid layout-row layout-align-start-center" ng-if="$ctrl.collection.length != 0">
+    <table>
+        <tr class="divider-top">
+            <th class="bp16 tp16 text-body2 opacity-secondary">{{ $ctrl.nameLabel | translate }}</th>
+            <th class="bp16 tp16 text-body2 opacity-secondary" ng-repeat="label in $ctrl.valueLabels">{{ label |
+                translate }}</th>
+        </tr>
+        <tr class="divider-top" ng-if="$ctrl.gridType == 'formated'" ng-repeat="step in $ctrl.collection track by $index">
+            <td class="bp16 tp16 text-body2">{{ $ctrl.onFormatX(step) }}</td>
+            <td class="bp16 tp16 text-body2" ng-repeat="label in $ctrl.valueLabels">{{ $ctrl.onFormatY(step[label]) || 0 }}</td>
+        </tr>
+        <tr class="divider-top" ng-if="$ctrl.gridType == 'formated' && $ctrl.statType != 'speed'">
+            <td class="bp16 tp16 text-body2">{{ 'GRID_SUMM_LABEL' | translate }}</td>
+            <td class="bp16 tp16 text-body2" ng-repeat="label in $ctrl.valueLabels">{{ $ctrl.onFormatY($ctrl.summ[label]) }}</td>
+        </tr>
+    </table>
+</div>
+
+<div class="iqs-empty-grid layout-row layout-align-center-center" ng-if="$ctrl.collection.length == 0">
+    <table class="iqs-empty-table">
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <span class="text-subhead1 color-secondary-text">{{ 'GRID_NO_DATA' | translate }}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</div>

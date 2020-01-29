@@ -1,0 +1,79 @@
+<div class="iqs-statistics-grid layout-row layout-align-start-center" ng-if="$ctrl.collection.length != 0">
+    <table>
+        <tr class="divider-top">
+            <th class="bp16 tp16 text-body2 opacity-secondary">{{ $ctrl.nameLabel | translate }}</th>
+            <th class="bp16 tp16 text-body2 opacity-secondary">{{ $ctrl.valueLabel | translate }}</th>
+        </tr>
+        <tr class="divider-top" ng-if="$ctrl.gridType == 'time'" ng-repeat="seria in $ctrl.collection track by $index">
+            <td class="bp16 tp16 text-body2" ng-if="seria.key || seria.label">{{ seria.key || seria.label }}</td>
+            <td class="bp16 tp16 text-body2" ng-if="!seria.key && !seria.label">{{ $ctrl.onFormatX(seria) }}</td>
+            <td class="bp16 tp16 text-body2">
+                <span ng-if="seria.display.hours && seria.display.hours > 0">{{ seria.display.hours }} {{ 'HOURS' |
+                    translate }} </span>
+                <span ng-if="seria.display.minutes && seria.display.minutes > 0">{{ seria.display.minutes }} {{
+                    'MINUTES' | translate }}</span>
+                <span>{{ seria.display.seconds }} {{ 'SECONDS' | translate }}</span>
+            </td>
+        </tr>
+        <tr class="divider-top" ng-if="$ctrl.gridType == 'time' && $ctrl.statType != 'speed'">
+            <td class="bp16 tp16 text-body2">{{ 'GRID_SUMM_LABEL' | translate }}</td>
+            <td class="bp16 tp16 text-body2">
+                <span ng-if="$ctrl.hours > 0">{{ $ctrl.hours }} {{ 'HOURS' | translate }} </span>
+                <span ng-if="$ctrl.minutes > 0">{{ $ctrl.minutes }} {{ 'MINUTES' | translate }}</span>
+                <span>{{ $ctrl.seconds }} {{ 'SECONDS' | translate }}</span>
+            </td>
+        </tr>
+        <tr class="divider-top" ng-if="$ctrl.gridType == 'formated'" ng-repeat="step in $ctrl.collection track by $index">
+            <td class="bp16 tp16 text-body2">{{ $ctrl.onFormatX(step) }}</td>
+            <td class="bp16 tp16 text-body2">{{ $ctrl.onFormatY(step) }}</td>
+        </tr>
+        <tr class="divider-top" ng-if="$ctrl.gridType == 'formated'&& $ctrl.statType != 'speed'">
+            <td class="bp16 tp16 text-body2">{{ 'GRID_SUMM_LABEL' | translate }}</td>
+            <td class="bp16 tp16 text-body2">{{ $ctrl.formatY($ctrl.summ) }}</td>
+        </tr>
+        <tr class="divider-top" ng-if="$ctrl.gridType == 'group'" ng-repeat="seria in $ctrl.collection track by $index">
+            <td class="bp16 tp16 text-body2">{{ seria.key || seria.label }}</td>
+            <td class="bp16 tp16 text-body2">
+                {{ seria.display || seria.value }}
+                <span ng-if="$ctrl.statType == 'distance'">{{ 'KM' | translate }} </span>
+                <span ng-if="$ctrl.statType == 'speed'">{{ 'KM_IN_H' | translate }}</span>
+            </td>
+        </tr>
+        <tr class="divider-top" ng-if="$ctrl.gridType == 'group' && $ctrl.statType != 'speed'">
+            <td class="bp16 tp16 text-body2">{{ 'GRID_SUMM_LABEL' | translate }}</td>
+            <td class="bp16 tp16 text-body2">
+                {{ $ctrl.summ }}
+                <span ng-if="$ctrl.statType == 'distance'">{{ 'KM' | translate }} </span>
+                <span ng-if="$ctrl.statType == 'speed'">{{ 'KM_IN_H' | translate }}</span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="iqs-empty-grid layout-row layout-align-center-center" ng-if="$ctrl.collection.length == 0">
+    <table class="iqs-empty-table">
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <span class="text-subhead1 color-secondary-text">{{ 'GRID_NO_DATA' | translate }}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</div>

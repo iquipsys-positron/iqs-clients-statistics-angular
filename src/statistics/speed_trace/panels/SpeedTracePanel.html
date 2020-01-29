@@ -1,0 +1,38 @@
+<pip-document>
+	<iqs-statistics-filter-panel iqs-start-date="$ctrl.startDate" iqs-date-period-type="$ctrl.dateType"
+	                             iqs-filter-visibility="$ctrl.filterVisibility" iqs-statistics-refresh="$ctrl.updateStatistics(params)"
+	                             iqs-filter-values="$ctrl.filterValues">
+	</iqs-statistics-filter-panel>
+	<div class="pip-body layout-column layout-align-center-center flex " ng-if="$ctrl.state == 'progress'">
+		<div class="pip-empty">
+			<img src="images/empty/progress.svg" class="pip-pic">
+			<div class="pip-text">
+				{{ ::'STATISTICS_LOADING_TITLE' | translate }}
+				<md-progress-linear md-mode="indeterminate" class="tm24"></md-progress-linear>
+			</div>
+		</div>
+	</div>
+	<div class="pip-body layout-column flex " ng-if="$ctrl.state == 'data'">
+		<div class="layout-row layout-align-start-center bp8">
+			<div class="text-subhead2 flex">
+				{{ 'STATISTICS_SPEED_TRACE_DETAILS_TITLE' | translate }}
+				"{{ $ctrl.item.name | translate }}"
+				{{ $ctrl.dateType === 'weekly' ? 'FOR_DATE_WEEK' : 'FOR_DATE' | translate }} {{ $ctrl.filterParams.formattedDate }}
+			</div>
+			<div class="flex-fixed">
+				<md-button class="md-icon-button" ng-click="$ctrl.view = 'chart'" ng-class="{ 'opacity-secondary' :  $ctrl.view === 'grid'}">
+					<md-icon md-svg-icon="icons:bars"></md-icon>
+				</md-button>
+				<md-button class="md-icon-button" ng-click="$ctrl.view = 'grid'" ng-class="{ 'opacity-secondary' :  $ctrl.view === 'chart'}">
+					<md-icon md-svg-icon="icons:grid"></md-icon>
+				</md-button>
+			</div>
+		</div>
+
+		<div ng-if="$ctrl.state == 'data'" class="flex w-stretch h-stretch">
+			<div ng-include="'statistics/includes/StatisticsLineChart.html'" ng-if="$ctrl.view === 'chart'"></div>
+
+			<div ng-include="'statistics/includes/StatisticsGridForSpecificParam.html'" class="bp16" ng-if="$ctrl.view === 'grid'"></div>
+		</div>
+	</div>
+</pip-document>
